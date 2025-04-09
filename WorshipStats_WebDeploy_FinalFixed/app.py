@@ -45,8 +45,7 @@ if uploaded_files:
         st.warning("找不到有效資料，請確認表單格式無誤。")
     else:
         st.success("✅ 表單成功解析！開始分析...")
-        stats_df, potential_df, heavy_df = calculate_statistics(all_data, weights)
-
+        stats_df, potential_df, heavy_df, source_df = calculate_statistics(all_data, weights)
         st.subheader("📄 統計報表預覽")
         sort_option = st.selectbox("排序依據：", ["總次數", "加權分數"], index=0)
         stats_df_sorted = stats_df.sort_values(by=sort_option, ascending=False)
